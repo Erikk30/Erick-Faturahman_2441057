@@ -34,4 +34,6 @@ Gambar 5.8. Halaman Manajemen Anggota
 e)	Halaman Unduh Laporan Keuangan (Use Case: Mencetak/Mengunduh Laporan) Fasilitas bagi bendahara untuk mengkompilasi data transaksi berdasarkan periode waktu tertentu (bulan/tahun). Sistem menyediakan opsi ekspor dokumen ke dalam format digital (PDF/Excel) untuk keperluan laporan pertanggungjawaban. 
  
 Gambar 5.9. Halaman Unduh Laporan Keuangan
- 
+
+
+design

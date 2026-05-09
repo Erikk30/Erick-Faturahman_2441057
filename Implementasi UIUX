@@ -1,0 +1,37 @@
+IMPLEMENTASI ANTARMUKA (UI/UX)
+5.1	Pendekatan Desain dan Teknologi 
+Tahap implementasi antarmuka pengguna (UI/UX) pada sistem LUNASIN difokuskan pada penyajian pengalaman pengguna yang intuitif, ringan, dan modern. Berdasarkan hasil riset yang menunjukkan bahwa 92,7% pengguna mengakses sistem melalui ponsel pintar, perancangan antarmuka dibangun menggunakan pendekatan Mobile-First Design. 
+Proses pembuatan purwarupa (prototyping) dilakukan menggunakan perangkat lunak desain Figma, yang kemudian diterjemahkan ke dalam baris kode front-end menggunakan framework Tailwind CSS. Desain visual mengadopsi gaya Bento Grid dengan dominasi palet warna Emerald Green.
+5.2	Implementasi Antarmuka Umum
+Bagian ini merupakan antarmuka awal yang menghubungkan seluruh aktor (Anggota dan Bendahara) sebelum memasuki sistem. 
+a)	Halaman Login (Use Case: Melakukan Login) Antarmuka pintu masuk utama sistem yang bersifat universal. Sistem menggunakan Role-Based Access Control (RBAC) di belakang layar untuk memvalidasi kredensial pengguna dan mengarahkan mereka ke dasbor yang sesuai dengan hak aksesnya (Anggota atau Bendahara).
+5.3	Implementasi Antarmuka Anggota (Member POV) 
+Antarmuka untuk anggota dirancang seminimalis mungkin untuk mengurangi learning curve, memfasilitasi kebutuhan utama terkait konfirmasi pembayaran dan transparansi. 
+a)	Halaman Dasbor & Laporan Transparansi Anggota  (Use Case: Melihat Dashboard & Melihat Transparasi) Halaman ini merupakan pusat informasi bagi anggota, dan sebagai bentuk akuntabilitas, anggota dan bendahara diberikan akses untuk melihat rekapitulasi pengeluaran dan pemasukan kas keseluruhan organisasi melalui visualisasi data grafik dan tabel yang ringkas.
+
+
+b)	Halaman Unggah Bukti Pembayaran (Use Case: Mengunggah Bukti Pembayaran) Halaman ini mengakomodasi alur konfirmasi transaksi, di mana anggota dapat memilih periode bulan tagihan dan mengunggah foto bukti transfer secara mandiri sebelum divalidasi oleh sistem. 
+ 
+Gambar 5.3. Halaman Unggah Bukti Pembayan
+
+
+5.4	Implementasi Antarmuka Bendahara (Admin POV) 
+Antarmuka untuk Bendahara bertindak sebagai Command Center yang memiliki kompleksitas lebih tinggi. Arsitektur informasi disusun secara padat agar bendahara dapat mengelola data kas dan memvalidasi transaksi dengan cepat. 
+a)	Halaman Dasbor Bendahara (Use Case: Melihat Dashboard) Menampilkan informasi manajerial secara komprehensif, meliputi total saldo kas, ringkasan arus kas bulan berjalan, serta metrik kepatuhan anggota (jumlah lunas dan menunggak).
+ 
+Gambar 5.5. Halaman Dasbor Bendahara 
+
+b)	Halaman Validasi Pembayaran (Use Case: Memvalidasi Pembayaran) Halaman krusial yang menampilkan antrean bukti transfer dari anggota. Bendahara dapat meninjau foto bukti secara detail dan melakukan aksi "Terima/Approve" atau "Tolak" untuk memperbarui status tagihan dan saldo kas. 
+ 
+Gambar 5.6. Halaman Validasi Pembayaran 
+c)	Halaman Kelola Transaksi Manual (Use Case: Mengelola Transaksi Manual) Fasilitas bagi bendahara untuk mencatat transaksi pemasukan eksternal atau pengeluaran operasional (seperti pembelian konsumsi atau alat tulis) secara manual ke dalam sistem. (Catatan: Di desain kita, fitur ini jadi satu widget di Dashboard, lu bisa potong screenshot khusus bagian tombol Catat Pemasukan/Pengeluaran). 
+ 
+Gambar 5.7. Antarmuka Pencatatan Transaki
+ 
+d)	Halaman Manajemen Anggota (Use Case: Mengelola Data Anggota) Menyajikan daftar lengkap anggota untuk memantau status pembayaran. Antarmuka ini dilengkapi dengan fitur pencarian, penambahan data anggota baru, serta visualisasi indikator warna untuk mengidentifikasi anggota yang menunggak kas. 
+ 
+Gambar 5.8. Halaman Manajemen Anggota
+e)	Halaman Unduh Laporan Keuangan (Use Case: Mencetak/Mengunduh Laporan) Fasilitas bagi bendahara untuk mengkompilasi data transaksi berdasarkan periode waktu tertentu (bulan/tahun). Sistem menyediakan opsi ekspor dokumen ke dalam format digital (PDF/Excel) untuk keperluan laporan pertanggungjawaban. 
+ 
+Gambar 5.9. Halaman Unduh Laporan Keuangan
+ 

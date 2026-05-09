@@ -1,0 +1,56 @@
+HASIL RISET
+2.1	Latar Belakang dan Tujuan Riset 
+Dalam pengembangan perangkat lunak, proses elisitasi (penggalian) kebutuhan merupakan tahap krusial untuk memastikan sistem yang dibangun tepat sasaran dan memberikan solusi nyata. Riset ini dilakukan dengan tujuan utama untuk:
+•	Menghindari asumsi sepihak dari tim pengembang dengan cara menggali langsung pain points (titik masalah) yang dialami pengguna saat ini.
+•	Memetakan Kebutuhan Fungsional (Functional Requirements) dan Kebutuhan Non-Fungsional (Non-Functional Requirements) berdasarkan prioritas pengguna.
+•	Menyelaraskan alur kerja (business logic) antara sisi administrator (Bendahara) dan sisi pengguna akhir (Anggota Organisasi).
+2.2	Metodologi dan Demografi Responden 
+Pengumpulan data dalam riset ini menggunakan pendekatan metode campuran (mixed-method), yaitu penyebaran kuesioner daring untuk sisi anggota (kuantitatif) dan wawancara mendalam untuk sisi bendahara (kualitatif).
+Untuk kuesioner anggota, tim pengembang menetapkan target awal sebanyak 30 hingga 50 responden agar data yang diperoleh memenuhi kaidah distribusi normal secara statistik. Alhamdulillah, antusiasme di lapangan sangat baik sehingga riset ini berhasil menjaring 55 responden dari berbagai latar belakang organisasi (seperti HIMSI, BEM, UKM, Karang Taruna, dll). Hal ini memberikan tingkat kepercayaan dan validitas data yang sangat kuat untuk dijadikan landasan perancangan sistem.
+2.3	Analisis Kebutuhan Pengguna (Perspektif Anggota Organisasi) 
+Berdasarkan hasil kuesioner dari 55 responden tersebut, berikut adalah analisis kebutuhan dari sisi pengguna akhir (end-user):
+•	Frekuensi dan Kendala Pembayaran Mayoritas responden (43,6%) menyatakan "Kadang-kadang" mengalami kendala seperti lupa atau sulit mencari waktu untuk membayar kas.
+ 
+Gambar 1. Frekuensi Kendala Pembayaran  Anggota
+Kendala operasional tertinggi yang dialami anggota adalah lupa terkait rincian bulan apa saja yang sudah lunas dan yang masih menunggak (67,3%). Keluhan terbesar kedua disusul oleh kesulitan mencari waktu untuk bertemu bendahara secara langsung (27,3%), dan kurangnya transparansi sirkulasi saldo kas organisasi (25,5%).
+ 
+Gambar 2. Rincian Kendala Utama Anggota 
+
+•	Metode Pembayaran yang Digunakan Terdapat pembagian preferensi yang berimbang mengenai metode pembayaran saat ini. Sebanyak 56,4% responden lebih sering menggunakan metode transfer online (Bank/E-Wallet), sedangkan 43,6% sisanya masih rutin menyerahkan uang tunai. Hal ini mengindikasikan bahwa antarmuka LUNASIN harus dirancang untuk mengakomodasi pencatatan dari kedua alur pembayaran tersebut secara fleksibel.
+ 
+Gambar 3. Metode Pembayaran yang Sering  Digunakan
+
+
+•	Prioritas Fungsionalitas Sistem (Functional Requirements) Dari segi harapan terhadap fitur aplikasi, terdapat dua fitur utama yang dinilai paling krusial dengan tingkat urgensi yang sama (72,7%), yaitu:
+1.	Dashboard Riwayat Pembayaran Pribadi: Untuk melihat rincian tagihan secara mandiri.
+2.	Laporan Transparansi Kas Organisasi: Untuk melihat total sirkulasi pemasukan dan pengeluaran. Tingkat urgensi selanjutnya adalah fitur notifikasi/pengingat tunggakan otomatis (60%), dan fungsionalitas untuk mengunggah foto bukti transfer secara mandiri (43,6%).
+ 
+Gambar 4. Prioritas Kebutuhan Fitur dari Sisi Anggota
+
+
+
+•	Kebutuhan Perangkat dan Antarmuka (Non-Functional Requirements) Sebanyak 92,7% responden menyatakan akan mengakses aplikasi web LUNASIN menggunakan Smartphone (HP) dibandingkan Laptop/PC (7,3%). Fakta dominan ini mewajibkan tim pengembang (khususnya UI/UX Designer dan Front-End Developer) untuk menerapkan pendekatan desain Mobile-First. Antarmuka sistem dipastikan harus responsif, ringan, dan optimal saat diakses melalui peramban pada perangkat seluler.
+ 
+Gambar 5. Preferensi Perangkat Akses Pengguna
+2.4	Analisis Kebutuhan Sistem (Perspektif Bendahara Organisasi)
+Berdasarkan wawancara mendalam dengan pengurus keuangan dari 4 organisasi berbeda (HIMSI, IPM Cabang Daerah, IPM Cabang Kota, dan Dewadaru), diperoleh wawasan terkait alur bisnis saat ini, titik masalah (pain points), dan spesifikasi kebutuhan fungsional dari sisi administrator:
+a)	Evaluasi Proses Bisnis Saat Ini (As-Is System)
+a.	Metode Pencatatan: Seluruh organisasi saat ini masih sangat bergantung pada metode pencatatan ganda (hybrid), yaitu pencatatan fisik (buku kas manual) yang disandingkan dengan perangkat lunak spreadsheet seperti Microsoft Excel atau Google Sheets.
+b.	Validasi Pembayaran: Proses validasi dilakukan secara manual. Bendahara harus mencocokkan foto bukti transfer yang dikirimkan anggota (biasanya via chat) dengan riwayat mutasi masuk (e-statement) di rekening bank.
+c.	Pelaporan Transparansi: Laporan keuangan umumnya disebarkan secara berkala (bulanan atau triwulanan) melalui grup komunikasi atau email resmi dalam bentuk format Excel, PDF, maupun sekadar tangkapan layar (screenshot).
+
+b)	Kendala Operasional (Pain Points)
+a.	Selisih Kas (Discrepancy): Hampir seluruh bendahara pernah mengalami selisih antara pencatatan dengan saldo nyata. Faktor utamanya adalah human error (kesalahan input), transaksi yang terlewat dicatat, serta pemotongan biaya admin antar-bank yang tidak terdata di pembukuan.
+b.	Kelelahan Administratif (Penagihan): Proses menagih iuran kas sangat menyita waktu dan tenaga karena bendahara harus memberikan pengingat di grup besar, melacak siapa saja yang menunggak, hingga melakukan pendekatan personal (japri) satu per satu kepada anggota.
+c.	Kekacauan Data: Seringkali anggota sudah melakukan transfer uang namun menunda/lupa mengirimkan bukti bayarnya, sehingga validasi transaksi menjadi tertunda dan data pembukuan menjadi berantakan.
+c)	Prioritas Kebutuhan Fungsional Administrator (Functional Requirements)
+Dari pemetaan masalah di atas, sistem LUNASIN diwajibkan untuk memiliki fitur fungsional dari sisi Admin sebagai berikut:
+1.	Sistem Manajemen Hak Akses (Role-Based Access): Sistem wajib membedakan tampilan dan fungsi antara Admin (Bendahara) dan User (Anggota). Bendahara memiliki kontrol penuh untuk mengedit, menambah, dan memvalidasi data, sedangkan anggota hanya diberikan hak akses "hanya lihat" (view only) pada laporan.
+2.	Validasi Terpusat (Approval System): Anggota memang diharapkan dapat mengunggah bukti bayarnya secara mandiri, namun sistem harus memastikan setiap bukti tersebut masuk ke dashboard bendahara untuk dilakukan verifikasi dan persetujuan (approval) secara sistem sebelum statusnya berubah menjadi "Lunas".
+3.	Pelacakan Status (Tracking): Ketersediaan dashboard admin yang dapat langsung memperlihatkan dan menyortir daftar anggota yang sudah lunas maupun yang masih menunggak.
+4.	Pengingat Otomatis (Auto-Reminder): Fitur pengingat tunggakan yang dikirimkan oleh sistem sangat mendesak diperlukan untuk menggantikan tugas "japri" manual bendahara.
+5.	Ekspor Laporan Otomatis: Sistem harus memiliki fungsi untuk menghasilkan laporan (unduh) setidaknya dalam dua format utama: format PDF (untuk dibagikan secara resmi) dan format Excel/Spreadsheet (sebagai arsip database yang dapat diolah kembali)
+Berdasarkan hasil riset dan elisitasi kebutuhan yang telah dilakukan kepada 55 responden anggota organisasi serta wawancara mendalam dengan pengurus keuangan dari 4 organisasi berbeda (HIMSI, IPM Cabang Daerah, IPM Cabang Kota, dan Dewadaru), dapat disimpulkan bahwa pengembangan Sistem Informasi Manajemen Kas Organisasi sangat relevan dan mendesak untuk direalisasikan.
+Sistem pengelolaan kas yang berjalan saat ini terbukti rentan terhadap human error , risiko selisih pencatatan , dan tingginya beban administratif bendahara dalam menagih iuran secara manual. Oleh karena itu, Sistem ini dirancang untuk menjembatani kebutuhan kedua belah pihak dengan fitur-fitur krusial, meliputi: dashboard riwayat pembayaran mandiri , sistem validasi persetujuan (approval) oleh bendahara , fitur pengingat tunggakan otomatis (auto-reminder) , dan kemampuan ekspor laporan keuangan. Selain itu, preferensi perangkat pengguna mewajibkan antarmuka sistem dibangun dengan pendekatan Mobile-First.
+Dengan tersusunnya dokumen analisis ini, spesifikasi fungsional dan non-fungsional sistem telah tervalidasi secara komprehensif oleh pengguna akhir. Proyek pengembangan perangkat lunak ini dinyatakan siap untuk melangkah ke fase perancangan sistem (System Design), yang mencakup pembuatan Use Case Diagram, perancangan basis data, dan pembuatan purwarupa antarmuka (UI/UX Mockup).
+

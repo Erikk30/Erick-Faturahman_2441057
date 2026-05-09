@@ -1,0 +1,91 @@
+PERANCANGAN DESIGN PEMODELAN SISTEM
+Pemodelan sistem pada aplikasi LUNASIN dilakukan menggunakan Unified Modeling Language (UML) untuk menggambarkan alur dan struktur sistem secara jelas sebelum tahap implementasi.
+4.1	Use Case Diagram 
+Use Case Diagram digunakan untuk memodelkan fungsionalitas sistem dari perspektif pengguna (aktor). Pada aplikasi LUNASIN, terdapat dua aktor utama yang berinteraksi dengan sistem, yaitu Anggota dan Bendahara. Anggota memiliki akses dasar untuk mengunggah bukti pembayaran dan melihat laporan transparansi, sedangkan Bendahara memiliki hak akses manajerial menyeluruh seperti memvalidasi pembayaran, mengelola data anggota, serta menginput transaksi manual.
+ 
+Gambar 1. Use Case Diagram Web App LUNASIN
+
+4.2	Activity Diagram 
+Activity Diagram menggambarkan alur kerja (workflow) atau aktivitas operasional dari masing-masing use case yang telah didefinisikan. Diagram ini menunjukkan bagaimana sebuah tahapan dimulai, alur keputusan yang mungkin terjadi di dalam sistem, hingga proses tersebut selesai. Berikut adalah penjabaran Activity Diagram pada sistem LUNASIN:
+4.2.1	Activity Diagram - Melakukan Login 
+Menggambarkan alur pengecekan kredensial (username dan password) beserta validasi hak akses untuk menentukan apakah pengguna diarahkan ke dashboard Anggota atau Bendahara. 
+ 
+Gambar 2. Activity Diagram - Melakukan Login 
+4.2.2	Activity Diagram - Melihat Dashboard 
+Menggambarkan alur sistem dalam merangkum dan menampilkan informasi rekapitulasi kas secara ringkas saat pengguna mengakses halaman utama. 
+ 
+Gambar 3.  Activity Diagram - Melihat Dashboard 
+
+
+
+
+4.2.3	Activity Diagram - Mengunggah Bukti Pembayaran 
+Menggambarkan tahapan yang dilakukan oleh Anggota dalam memilih periode tagihan dan mengunggah foto bukti transfer, serta pengecekan format dan ukuran file oleh sistem. 
+ 
+Gambar 4. Activity Diagram - Mengunggah Bukti Pembayaran 
+4.2.4	Activity Diagram - Melihat Laporan Transparansi 
+Menggambarkan alur pengguna dalam mengakses data transparansi rekapitulasi pengeluaran dan pemasukan kas berupa visualisasi grafik dan tabel. 
+ 
+Gambar 5. Activity Diagram - Melihat Laporan Transparansi
+4.2.5	Activity Diagram - Mengelola Data Anggota 
+Menggambarkan alur aktivitas Bendahara dalam melakukan penambahan atau pembaruan basis data anggota, termasuk validasi kelengkapan form oleh sistem. 
+ 
+Gambar 6.  Activity Diagram - Mengelola Data Anggota
+4.2.6	Activity Diagram - Memvalidasi Pembayaran 
+Menggambarkan proses Bendahara dalam meninjau bukti pembayaran yang diunggah Anggota, lalu memberikan keputusan untuk menerima atau menolak transaksi kas tersebut. 
+ 
+Gambar 7.  Activity Diagram - Memvalidasi Pembayaran
+4.2.7	Activity Diagram - Mengelola Transaksi Manual 
+Menggambarkan alur kerja Bendahara dalam mencatat transaksi pemasukan kas eksternal atau pengeluaran secara manual ke dalam sistem beserta keterangan transaksinya. 
+ 
+Gambar 8.  Activity Diagram - Mengelola Transaksi Manual 
+
+
+4.2.8	Activity Diagram - Mencetak/Mengunduh Laporan 
+Menggambarkan alur sistem dalam mengkompilasi data transaksi berdasarkan periode waktu yang dipilih Bendahara untuk diunduh dalam format dokumen digital (PDF/Excel). 
+ 
+Gambar 9.  Activity Diagram - Mencetak Mengunduh Laporan 
+4.3	Sequence Diagram 
+Sequence Diagram digunakan untuk merepresentasikan interaksi antar objek di dalam sistem yang disusun berdasarkan urutan waktu. Interaksi ini melibatkan tektokan data antara Aktor, antarmuka pengguna (Boundary), proses logika (Control), dan basis data (Entity). Berikut adalah rancangan Sequence Diagram untuk web app LUNASIN:
+4.3.1	Sequence Diagram - Melakukan Login 
+Menggambarkan proses aliran data saat pengguna mencoba masuk ke dalam sistem. Pengguna memasukkan username dan password di Halaman Login, yang kemudian diteruskan oleh Controller Login untuk divalidasi ke Database. Terdapat blok alternatif (ALT): jika data valid, sistem akan mengecek hak akses (Anggota/Bendahara) dan mengarahkan ke Dashboard yang sesuai; jika data tidak valid, Controller akan mengembalikan pesan error ke layar pengguna.
+ 
+Gambar 10.  Sequence Diagram - Melakukan Login 
+
+4.3.2	Sequence Diagram - Melihat Dashboard 
+Menggambarkan interaksi sistem saat pengguna mengakses halaman utama. Permintaan (request) dari Halaman Dashboard diteruskan ke Controller Dashboard, yang kemudian menarik data saldo dan riwayat transaksi terakhir dari Database. Setelah data ditemukan, sistem menampilkannya dalam bentuk rangkuman informasi dan grafik di layar pengguna.
+ 
+Gambar 11.  Sequence Diagram - Melihat Dashboard 
+
+
+4.3.3	Sequence Diagram - Mengunggah Bukti Pembayaran
+Menjelaskan proses tektokan data ketika Anggota mengunggah bukti transfer. Controller Pembayaran bertugas mengecek ukuran dan format file terlebih dahulu. Pada blok alternatif (ALT): jika file valid, data foto disimpan ke Database, status tagihan diubah menjadi "Menunggu Validasi", dan muncul notifikasi berhasil. Jika format atau ukuran salah, sistem menolak file dan menampilkan pesan error. 
+
+ 
+Gambar 12. Sequence Diagram - Mengunggah Bukti Pembayaran 
+
+
+4.3.4	Sequence Diagram - Melihat Laporan Transparansi
+Memvisualisasikan proses penarikan data rekapitulasi kas. Saat Anggota menekan menu Laporan Transparansi, Controller akan me-request data pemasukan dan pengeluaran keseluruhan dari Database. Data yang berhasil ditarik kemudian dikonversi oleh sistem untuk ditampilkan ke dalam format grafik visual dan tabel pada antarmuka pengguna.
+ 
+Gambar 13. Sequence Diagram - Melihat Laporan Transparansi 
+
+4.3.5	Sequence Diagram - Mengelola Data Anggota
+Menggambarkan alur saat Bendahara menambahkan atau memperbarui data anggota. Controller Anggota bertugas melakukan validasi kelengkapan form yang diinput. Terdapat blok alternatif (ALT): jika form lengkap (valid), data baru disimpan ke Database dan notifikasi sukses ditampilkan. Jika ada data yang kosong (invalid), proses dihentikan dan sistem meminta Bendahara untuk melengkapi data. 
+ 
+Gambar 14. Sequence Diagram - Mengelola Data Anggota
+
+4.3.6	Sequence Diagram - Memvalidasi Pembayaran
+Menjelaskan proses eksekusi keputusan oleh Bendahara terhadap bukti bayar Anggota. Controller Validasi memproses status "Terima" atau "Tolak". Pada blok alternatif (ALT): jika divalidasi sah (Terima), Database akan memperbarui status tagihan menjadi "Lunas" dan menambah total saldo kas. Jika ditolak, status diubah menjadi "Ditolak" tanpa mengubah saldo, dan notifikasi dikirimkan ke pengguna terkait. 
+ 
+Gambar 15. Sequence Diagram - Memvalidasi Pembayaran
+
+4.3.7	Sequence Diagram - Mengelola Transaksi Manual
+Menggambarkan aliran data saat Bendahara menginput pengeluaran atau pemasukan secara manual. Setelah pengisian form, Controller Transaksi melakukan pengecekan kelengkapan data. Pada blok alternatif (ALT): jika data valid, sistem menyimpannya ke Database, memperbarui saldo kas total, dan menampilkan pesan sukses. Jika data tidak lengkap, sistem mengembalikan pesan error. 
+ 
+Gambar 16. Sequence Diagram - Mengelola Transaksi Manual
+4.3.8	  Sequence Diagram - Mencetak/Mengunduh Laporan
+Menjelaskan proses generate file dokumen. Bendahara menginput parameter periode (bulan/tahun) dan format file (PDF/Excel). Controller Laporan menarik kumpulan data transaksi dari Database sesuai parameter tersebut, lalu memproses (mengkompilasi) data menjadi file utuh. Setelah file siap, sistem akan secara otomatis memicu proses pengunduhan (download) di browser pengguna.
+
+ 
+Gambar 17. Sequence Diagram - Mencetak Mengunduh Laporan
